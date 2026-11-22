@@ -1,0 +1,33 @@
+Nanexus Video Investigation Agent
+Copyright contributors to the Nanexus project.
+
+This product is licensed under the Apache License, Version 2.0. See the LICENSE
+file for the full license text that governs the project source code.
+
+Nanexus branding (name and logo)
+--------------------------------
+The Nanexus name and the Nanexus logo (including
+`src/nanexus_investigation/web/static/nanexus-logo.png`) are project trademarks /
+brand marks.
+
+Permission is granted to include, display, copy, and redistribute the original
+Nanexus logo as part of Nanexus software, documentation, source distributions,
+and wheel packages, including unmodified retention and display of that logo in
+downstream distributions of Nanexus.
+
+This permission does **not**:
+- grant trademark ownership;
+- authorize use of the Nanexus name or logo to claim official status, affiliation,
+  or endorsement; or
+- authorize misleading branding that presents a modified or unrelated product as
+  an official Nanexus release.
+
+Apache License 2.0 terms for the source code remain separate from these branding
+rules.
+
+Third-party software
+--------------------
+Third-party Python dependencies are not vendored into Nanexus source or wheel
+archives in this release candidate; they are installed from their upstream
+distributors (typically PyPI) according to `pyproject.toml` / `uv.lock`. Those
+components retain their own licenses.

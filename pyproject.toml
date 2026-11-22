@@ -1,0 +1,68 @@
+[project]
+name = "nanexus-investigation"
+version = "0.1.0"
+description = "Local-first video investigation agent (V0.1 developer / technical preview)."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+dependencies = [
+    "fastapi>=0.165.0",
+    "langgraph==1.2.24",
+    "langgraph-checkpoint-sqlite==3.1.3",
+    "pydantic==2.14.4",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nanexus_investigation"]
+# Web static assets ship with the package directory (index.html, app.js, CSS, logo).
+
+# Explicit source-distribution boundary: project text + package + tests only.
+# Runtime data under .local/, *.sqlite, media stores, and secrets must never ship.
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/nanexus_investigation",
+    "/tests",
+    "/docs",
+    "/README.md",
+    "/LICENSE",
+    "/NOTICE",
+    "/pyproject.toml",
+    "/uv.lock",
+    "/.env.example",
+    "/.gitignore",
+]
+exclude = [
+    "**/.local/**",
+    "**/.r2b-data/**",
+    "**/media_store/*",
+    "**/*.sqlite",
+    "**/*.sqlite3",
+    "**/*.pem",
+    "**/*.key",
+    "**/*.crt",
+    "**/*.log",
+    "**/__pycache__/**",
+    "**/.pytest_cache/**",
+    "**/.venv/**",
+]
+
+[project.scripts]
+nanexus-web = "nanexus_investigation.web.app:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+markers = [
+    "live_frigate: authenticated live Frigate API tests (opt-in; requires --live-frigate)",
+]

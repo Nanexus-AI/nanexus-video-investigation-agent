@@ -1,0 +1,15 @@
+{
+  "id": "1700000000.111111-abc123",
+  "camera": "front_yard",
+  "label": "person",
+  "zones": ["driveway"],
+  "start_time": 1700000000.111111,
+  "end_time": 1700000012.222222,
+  "has_clip": true,
+  "has_snapshot": true,
+  "score": 0.91,
+  "data": {
+    "type": "object",
+    "description": "sanitized fixture; not live surveillance content"
+  }
+}

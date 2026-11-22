@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nanexus Local Video Investigation Agent</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <div class="logo-slot" title="Nanexus">
+        <img src="/static/nanexus-logo.png" alt="Nanexus" width="54" height="54" />
+      </div>
+      <div class="brand-text">
+        <div class="name">Nanexus</div>
+        <div class="product">Local Video Investigation Agent</div>
+      </div>
+    </header>
+
+    <div id="error" class="error-banner" role="alert"></div>
+
+    <section class="panel" aria-labelledby="request-title">
+      <h2 id="request-title">Investigation Request</h2>
+      <div class="hint viewing-hint" id="viewing-hint" hidden></div>
+      <label for="question">Question</label>
+      <textarea id="question" placeholder="Find person or vehicle activity near the driveway…"></textarea>
+
+      <label for="cameras">Authorized cameras</label>
+      <select id="cameras" multiple size="4"></select>
+      <div class="hint" id="tz-hint">Times use the operator timezone shown below.</div>
+
+      <div class="row">
+        <div>
+          <label for="start">Start</label>
+          <input id="start" type="datetime-local" />
+        </div>
+        <div>
+          <label for="end">End</label>
+          <input id="end" type="datetime-local" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="investigate" type="button">Investigate</button>
+        <button id="new-investigation" type="button" class="secondary" hidden>New Investigation</button>
+        <span class="hint" id="busy-hint"></span>
+      </div>
+      <div class="health" id="health"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="results-title">
+      <h2 id="results-title">Investigation Results</h2>
+      <div id="status-area"><span class="status-chip">idle</span></div>
+      <p class="summary" id="summary">Submit a question to begin.</p>
+
+      <h2>Key Findings</h2>
+      <ul class="findings" id="findings"><li class="muted">None yet.</li></ul>
+      <div class="hint" id="findings-note"></div>
+
+      <h2>Relevant Event Timeline</h2>
+      <ul class="timeline" id="timeline"><li class="muted">None yet.</li></ul>
+      <div class="hint" id="timeline-note"></div>
+
+      <h2>Selected Visual Evidence</h2>
+      <div class="media-grid" id="media"><div class="muted">None yet.</div></div>
+
+      <h2>Important Limitations</h2>
+      <ul class="limitations" id="limitations"><li class="muted">None yet.</li></ul>
+
+      <details id="evidence-details">
+        <summary>Evidence details & provenance</summary>
+        <div id="relations-block"></div>
+        <pre class="tech" id="technical"></pre>
+      </details>
+    </section>
+
+    <section class="panel" aria-labelledby="cases-title">
+      <h2 id="cases-title">Recent Cases</h2>
+      <ul class="cases" id="cases"><li class="muted">No cases yet.</li></ul>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

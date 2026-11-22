@@ -1,0 +1,39 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*~
+*.swp
+*.swo
+
+# Local runtime artifacts
+*.log
+tmp/
+run/
+*.pid
+
+# Private Frigate recordings / credentials (never commit real surveillance data)
+.local/
+private/
+*.pem
+*.crt
+*.key
